@@ -1,9 +1,30 @@
-import React from 'react'
-
-function TodoInput() {
+function TodoInput({ addTodo, value, updateValue }) {
   return (
-    <div>TodoInput</div>
-  )
+    <header>
+      <input
+        value={value}
+        onChange={(e) => updateValue(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && value.trim() !== "") {
+            addTodo(value);
+            updateValue("");
+          }
+        }}
+        placeholder="Create a task"
+        type="text"
+      />
+      <button
+        onClick={() => {
+          if (value.trim() !== "") {
+            addTodo(value);
+            updateValue(""); // Clear input after adding
+          }
+        }}
+      >
+        Add
+      </button>
+    </header>
+  );
 }
 
-export default TodoInput
+export default TodoInput;

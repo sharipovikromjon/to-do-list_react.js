@@ -1,9 +1,24 @@
-import React from 'react'
+import TodoCard from "./TodoCard";
 
-function TodoList() {
+function TodoList({ editTodo, deleteTodo, todoList, time }) {
   return (
-    <div>TodoList</div>
-  )
+    <ul className="main">
+      {todoList.map((item, index) => {
+        return (
+          <TodoCard
+            edit={editTodo}
+            deleteTodo={deleteTodo}
+            list={item.text}
+            key={index}
+            index={index}
+            time={item.time}
+          >
+            <p>{item}</p>
+          </TodoCard>
+        );
+      })}
+    </ul>
+  );
 }
 
-export default TodoList
+export default TodoList;
