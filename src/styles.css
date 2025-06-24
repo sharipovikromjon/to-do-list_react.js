@@ -1,0 +1,10 @@
+
+.todoItem .time {
+  display: none; /* Hide time by default */
+}
+
+.todoItem:hover .time {
+  display: block; /* Show time on hover */
+  font-size: 0.8em;
+  color: gray;
+}
